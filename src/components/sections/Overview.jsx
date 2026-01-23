@@ -25,7 +25,12 @@ function Overview({ setActiveSection }) {
           <h2 className="card-title">What You Are Evaluating</h2>
           <p>For each task, you will be given:</p>
           <ul className="bullet-list">
-            <li>A task prompt and any provided context</li>
+            <li>
+              A task prompt
+              <ul className="bullet-list">
+                <li>Any previous prompts and responses as context</li>
+              </ul>
+            </li>
             <li>Two AI-generated responses (Response A and Response B)</li>
           </ul>
           <p>Your responsibility is to:</p>
