@@ -1,6 +1,6 @@
 import './Section.css'
 
-function Overview() {
+function Overview({ setActiveSection }) {
   return (
     <div className="section">
       <h1 className="section-title">Project Tuna - Overview</h1>
@@ -33,7 +33,7 @@ function Overview() {
           <p>Your responsibility is to:</p>
           <ul className="bullet-list">
             <li>Identify strengths and weaknesses in each response</li>
-            <li>Apply standardized weakness categories when issues are present</li>
+            <li>Apply standardized <a href="#" onClick={(e) => { e.preventDefault(); setActiveSection('weakness-categories'); }} className="link">weakness categories</a> when issues are present</li>
             <li>Make clear, justified comparisons between the two responses</li>
           </ul>
           <p className="note">

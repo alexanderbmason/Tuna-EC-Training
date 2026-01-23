@@ -1,22 +1,28 @@
+import QuickStart from './sections/QuickStart'
 import Overview from './sections/Overview'
 import TaskWorkflow from './sections/TaskWorkflow'
+import WeaknessCategories from './sections/WeaknessCategories'
+import ComparisonQuestions from './sections/ComparisonQuestions'
 import BestPractices from './sections/BestPractices'
-import Resources from './sections/Resources'
 import './ContentArea.css'
 
-function ContentArea({ activeSection }) {
+function ContentArea({ activeSection, setActiveSection }) {
   const renderContent = () => {
     switch (activeSection) {
+      case 'quick-start':
+        return <QuickStart setActiveSection={setActiveSection} />
       case 'overview':
-        return <Overview />
+        return <Overview setActiveSection={setActiveSection} />
       case 'task-workflow':
-        return <TaskWorkflow />
+        return <TaskWorkflow setActiveSection={setActiveSection} />
+      case 'weakness-categories':
+        return <WeaknessCategories />
+      case 'comparison-questions':
+        return <ComparisonQuestions />
       case 'best-practices':
-        return <BestPractices />
-      case 'resources':
-        return <Resources />
+        return <BestPractices setActiveSection={setActiveSection} />
       default:
-        return <Overview />
+        return <QuickStart setActiveSection={setActiveSection} />
     }
   }
 

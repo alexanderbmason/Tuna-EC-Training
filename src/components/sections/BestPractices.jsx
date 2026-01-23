@@ -1,6 +1,6 @@
 import './Section.css'
 
-function BestPractices() {
+function BestPractices({ setActiveSection }) {
   return (
     <div className="section">
       <h1 className="section-title">Best Practices</h1>

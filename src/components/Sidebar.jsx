@@ -2,9 +2,11 @@ import './Sidebar.css'
 
 const sections = [
   { id: 'overview', label: 'Overview', icon: '📋' },
-  { id: 'task-workflow', label: 'Task Workflow', icon: '⚙️' },
+  { id: 'quick-start', label: 'Quick Start', icon: '🚀' },
+  { id: 'task-workflow', label: 'Detailed Workflow', icon: '⚙️' },
+  { id: 'weakness-categories', label: 'Weakness Categories', icon: '🔍' },
+  { id: 'comparison-questions', label: 'Comparison Questions', icon: '⚖️' },
   { id: 'best-practices', label: 'Best Practices', icon: '⭐' },
-  { id: 'resources', label: 'Resources', icon: '📚' },
 ]
 
 function Sidebar({ activeSection, setActiveSection }) {
@@ -25,6 +27,18 @@ function Sidebar({ activeSection, setActiveSection }) {
           ))}
         </ul>
       </nav>
+      <div className="sidebar-footer">
+        <div className="support-contacts">
+          <h3 className="support-title">Support Contacts</h3>
+          <p className="support-text">
+            If you have not received your alias email or encounter any issues, please contact:
+          </p>
+          <ul className="support-list">
+            <li>Christian Arroyo</li>
+            <li>Juan Pablo Chong</li>
+          </ul>
+        </div>
+      </div>
     </aside>
   )
 }

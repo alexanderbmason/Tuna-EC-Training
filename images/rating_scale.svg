@@ -1,0 +1,41 @@
+<svg width="600" height="120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Scale container -->
+  <rect x="0" y="20" width="600" height="60" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <!-- Segment dividers -->
+  <line x1="75" y1="20" x2="75" y2="80" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="150" y1="20" x2="150" y2="80" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="225" y1="20" x2="225" y2="80" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="300" y1="20" x2="300" y2="80" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="375" y1="20" x2="375" y2="80" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="450" y1="20" x2="450" y2="80" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="525" y1="20" x2="525" y2="80" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <!-- Segment 1: Large bold A -->
+  <text x="37.5" y="60" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">A</text>
+  
+  <!-- Segment 2: Large bold A -->
+  <text x="112.5" y="60" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">A</text>
+  
+  <!-- Segment 3: Medium A -->
+  <text x="187.5" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="normal" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">A</text>
+  
+  <!-- Segment 4: Small A -->
+  <text x="262.5" y="60" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">A</text>
+  
+  <!-- Segment 5: Small B -->
+  <text x="337.5" y="60" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">B</text>
+  
+  <!-- Segment 6: Medium B -->
+  <text x="412.5" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="normal" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">B</text>
+  
+  <!-- Segment 7: Large bold B -->
+  <text x="487.5" y="60" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">B</text>
+  
+  <!-- Segment 8: Large bold B -->
+  <text x="562.5" y="60" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">B</text>
+  
+  <!-- Labels below -->
+  <text x="75" y="100" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">A much better</text>
+  <text x="525" y="100" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">B much better</text>
+</svg>

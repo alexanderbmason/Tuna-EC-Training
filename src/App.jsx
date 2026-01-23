@@ -5,14 +5,14 @@ import ContentArea from './components/ContentArea'
 import './App.css'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('task-workflow')
+  const [activeSection, setActiveSection] = useState('overview')
 
   return (
     <div className="app">
       <Header />
       <div className="app-body">
         <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-        <ContentArea activeSection={activeSection} />
+        <ContentArea activeSection={activeSection} setActiveSection={setActiveSection} />
       </div>
     </div>
   )

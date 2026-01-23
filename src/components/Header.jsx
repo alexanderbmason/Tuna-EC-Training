@@ -1,11 +1,14 @@
 import './Header.css'
+import snorkelHeader from '../../images/snorkel_header.svg'
 
 function Header() {
   return (
     <header className="header">
       <div className="header-content">
-        <h1 className="header-title">Project Tuna Training Hub</h1>
-        <p className="header-subtitle">Comprehensive Training Guidelines</p>
+        <img src={snorkelHeader} alt="Snorkel" className="header-logo" />
+        <div className="header-text">
+          <h1 className="header-title">Project Tuna Training Hub</h1>
+        </div>
       </div>
     </header>
   )
