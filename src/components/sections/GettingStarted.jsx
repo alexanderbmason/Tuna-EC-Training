@@ -35,7 +35,7 @@ function GettingStarted() {
             here, your work is still reviewed.
           </p>
           <p className="note">
-            <strong>Note:</strong> If you have not received your alias, flag it to Christian Arroyo or Juan Pablo Chong.
+            <strong>Note:</strong> If you have not received your alias, flag it to Connor Young.
           </p>
         </div>
 

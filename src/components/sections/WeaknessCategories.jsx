@@ -3,7 +3,6 @@ import './Section.css'
 function WeaknessCategories() {
   return (
     <div className="section">
-      <h1 className="section-title">Weakness Categories</h1>
       <div className="section-content">
         <div className="card">
           <p className="note-text" style={{ marginBottom: '1.5rem' }}>

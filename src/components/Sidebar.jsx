@@ -2,7 +2,7 @@ import './Sidebar.css'
 
 const sections = [
   { id: 'overview', label: 'Overview', icon: '📋' },
-  { id: 'quick-start', label: 'Quick Start', icon: '🚀' },
+  { id: 'quick-start', label: 'High-Level Workflow', icon: '🚀' },
   { id: 'task-workflow', label: 'Detailed Workflow', icon: '⚙️' },
   { id: 'weakness-categories', label: 'Weakness Categories', icon: '🔍' },
   { id: 'comparison-questions', label: 'Comparison Questions', icon: '⚖️' },
@@ -33,10 +33,9 @@ function Sidebar({ activeSection, setActiveSection }) {
           <p className="support-text">
             If you have not received your alias email or encounter any issues, please contact:
           </p>
-          <ul className="support-list">
-            <li>Christian Arroyo</li>
-            <li>Juan Pablo Chong</li>
-          </ul>
+              <ul className="support-list">
+                <li>Connor Young</li>
+              </ul>
         </div>
       </div>
     </aside>

@@ -3,7 +3,6 @@ import './Section.css'
 function Overview({ setActiveSection }) {
   return (
     <div className="section">
-      <h1 className="section-title">Project Tuna - Overview</h1>
       <div className="section-content">
         <div className="card">
           <h2 className="card-title">Project Overview</h2>

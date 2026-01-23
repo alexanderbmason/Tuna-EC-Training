@@ -42,7 +42,6 @@ function CollapsibleCard({ title, children, defaultExpanded = false, nested = fa
 function TaskWorkflow({ setActiveSection }) {
   return (
     <div className="section">
-      <h1 className="section-title">Detailed Workflow</h1>
       <div className="section-content">
         <div className="card">
           <h2 className="card-title">Video Walkthrough</h2>
@@ -75,7 +74,7 @@ function TaskWorkflow({ setActiveSection }) {
               <br />
               <span className="note-text">If presented with a "Continue with Google" option, do not choose it, it will not work.</span>
               <br />
-              <span className="note-text"><strong>Note:</strong> If you have not received your alias, flag it to Christian Arroyo or Juan Pablo Chong.</span>
+              <span className="note-text"><strong>Note:</strong> If you have not received your alias, flag it to Connor Young.</span>
             </li>
             <li>You'll receive an email verification code at your personal email. Enter that code to complete login and start tasking.</li>
           </ol>
@@ -210,7 +209,7 @@ function TaskWorkflow({ setActiveSection }) {
         <CollapsibleCard title="Step 6: Compare Responses">
           <p>
             You will now compare Response A and Response B across several questions using a 1–8
-            scale. <strong>Each question is independent. Do not assume the same score applies everywhere.</strong>
+            scale, where 1 indicates that model A is much better and 8 indicates that model B is much better. <strong>Each question is independent. Do not assume the same score applies everywhere.</strong>
           </p>
           <p>
             Review the <a href="#" onClick={(e) => { e.preventDefault(); setActiveSection('comparison-questions'); }} className="link">comparison questions</a> to understand what you'll be evaluating, then provide a rating for each comparison category.
@@ -242,7 +241,7 @@ function TaskWorkflow({ setActiveSection }) {
 
         <CollapsibleCard title="Step 7: Final Submission Step on Snorkel Platform">
           <p className="note">
-            <strong>Important:</strong> A final submission step will be added to the Snorkel platform. 
+            <strong>Important:</strong> A final submission step will be added to <a href="https://experts.snorkel-ai.com/home" target="_blank" rel="noopener noreferrer" className="link">the Snorkel platform</a>. 
             This step will be used to record and finalize your evaluation work. This step is confirmation-only. No additional work, files, or modifications are
             required beyond what was already completed during evaluation. <strong>Completing this step will be required to receive compensation.</strong>
           </p>
