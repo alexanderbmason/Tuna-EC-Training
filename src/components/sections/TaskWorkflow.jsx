@@ -101,7 +101,6 @@ function TaskWorkflow({ setActiveSection }) {
           <p className="list-intro"><strong>Select "Yes, I can evaluate this task" if:</strong></p>
           <ul className="bullet-list">
             <li>The task prompt is understandable</li>
-            <li>Required files or context are present</li>
             <li>You are familiar with the programming language or domain</li>
           </ul>
           <p className="list-intro"><strong>Select "No – technical issues only" if:</strong></p>
@@ -110,6 +109,9 @@ function TaskWorkflow({ setActiveSection }) {
             <li>The task cannot be evaluated by anyone</li>
           </ul>
           <p className="list-follow-up"><strong>If you select No, you must clearly explain why the task could not be completed.</strong> Selecting No is equivalent to skipping the task, no payment is given in this case.</p>
+          <p className="note" style={{ marginTop: '1.5rem' }}>
+            <strong>NOTE:</strong> You will not be able to access or download the original files referenced in the prompt (if any). You must do your best to evaluate the responses with the conversation trace provided.
+          </p>
           <CollapsibleCard title="Visual" nested={true}>
             <div style={{ marginTop: '0.5rem' }}>
               <img src={capabilityCheckImage} alt="Step 2 Capability Check Interface" style={{ display: 'block', width: '100%', height: 'auto' }} />
