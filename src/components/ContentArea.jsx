@@ -1,6 +1,8 @@
 import QuickStart from './sections/QuickStart'
 import Overview from './sections/Overview'
 import TaskWorkflow from './sections/TaskWorkflow'
+import AutomatedEvals from './sections/AutomatedEvals'
+import ReviewGuidelines from './sections/ReviewGuidelines'
 import BestPractices from './sections/BestPractices'
 import './ContentArea.css'
 
@@ -13,6 +15,10 @@ function ContentArea({ activeSection, setActiveSection }) {
         return <Overview setActiveSection={setActiveSection} />
       case 'task-workflow':
         return <TaskWorkflow setActiveSection={setActiveSection} />
+      case 'automated-evals':
+        return <AutomatedEvals />
+      case 'review-guidelines':
+        return <ReviewGuidelines />
       case 'best-practices':
         return <BestPractices setActiveSection={setActiveSection} />
       default:

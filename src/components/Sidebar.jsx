@@ -4,6 +4,8 @@ const sections = [
   { id: 'overview', label: 'Overview', icon: '📋' },
   { id: 'quick-start', label: 'High-Level Workflow', icon: '🚀' },
   { id: 'task-workflow', label: 'Detailed Workflow', icon: '⚙️' },
+  { id: 'automated-evals', label: 'Automated Evals', icon: '🤖' },
+  { id: 'review-guidelines', label: 'Review Guidelines', icon: '📝' },
   { id: 'best-practices', label: 'Best Practices', icon: '⭐' },
 ]
 
