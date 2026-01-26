@@ -110,6 +110,9 @@ function TaskWorkflow({ setActiveSection }) {
           </ul>
           <p className="list-follow-up"><strong>If you select No, you must clearly explain why the task could not be completed.</strong> Selecting No is equivalent to skipping the task, no payment is given in this case.</p>
           <p className="note" style={{ marginTop: '1.5rem' }}>
+            <strong>NOTE:</strong> The task should be skipped if the final prompt does not result in code-based responses. If the responses are just plain text or explanations without actual code, then they should be skipped. We need actual code in the responses to evaluate.
+          </p>
+          <p className="note" style={{ marginTop: '1rem' }}>
             <strong>NOTE:</strong> You will not be able to access or download the original files referenced in the prompt (if any). You must do your best to evaluate the responses with the conversation trace provided.
           </p>
           <CollapsibleCard title="Visual" nested={true}>
