@@ -18,11 +18,11 @@ function GettingStarted() {
             <li>
               Log in using your alias email at:
               <br />
-              <a href="https://feedback.anthropic.com/surveyor/prwriter_snorkel?email_login=true" 
+              <a href="https://feedback.anthropic.com/surveyor/prwriter_0123?email_login=true" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="link">
-                https://feedback.anthropic.com/surveyor/prwriter_snorkel?email_login=true
+                https://feedback.anthropic.com/surveyor/prwriter_0123?email_login=true
               </a>
               <br />
               <span className="note-text">If presented with a "login with Google" option, do not choose it, it will not work.</span>

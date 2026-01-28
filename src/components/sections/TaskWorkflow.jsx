@@ -69,11 +69,11 @@ function TaskWorkflow({ setActiveSection }) {
           </p>
           <ol className="step-list">
             <li>
-              Log in using your <strong>alias email</strong> at: <a href="https://feedback.anthropic.com/surveyor/prwriter_snorkel?email_login=true" 
+              Log in using your <strong>alias email</strong> at: <a href="https://feedback.anthropic.com/surveyor/prwriter_0123?email_login=true" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="link">
-                https://feedback.anthropic.com/surveyor/prwriter_snorkel?email_login=true
+                https://feedback.anthropic.com/surveyor/prwriter_0123?email_login=true
               </a>
               <br />
               <span className="note-text">Do not use the option to log in with Google.</span>
@@ -110,9 +110,6 @@ function TaskWorkflow({ setActiveSection }) {
           </ul>
           <p className="list-follow-up"><strong>If you select No, you must clearly explain why the task could not be completed.</strong> Selecting No is equivalent to skipping the task, no payment is given in this case.</p>
           <p className="note" style={{ marginTop: '1.5rem' }}>
-            <strong>NOTE:</strong> The task should be skipped if the final prompt does not result in code-based responses. If the responses are just plain text or explanations without actual code, then they should be skipped. We need actual code in the responses to evaluate.
-          </p>
-          <p className="note" style={{ marginTop: '1rem' }}>
             <strong>NOTE:</strong> You will not be able to access or download the original files referenced in the prompt (if any). You must do your best to evaluate the responses with the conversation trace provided.
           </p>
           <CollapsibleCard title="Visual" nested={true}>
@@ -169,6 +166,17 @@ function TaskWorkflow({ setActiveSection }) {
           <p className="note" style={{ marginTop: '1rem', marginBottom: '1rem' }}>
             <strong>NOTE:</strong> You are only evaluating the FINAL turn presented in Response A. You may see prior prompts and responses in the conversation, but this is just for context. Focus your evaluation on just the final prompt and response.
           </p>
+          
+          <div className="card" style={{ backgroundColor: '#eff6ff', borderLeft: '4px solid #2563eb', padding: '1rem', marginTop: '1rem', marginBottom: '1rem' }}>
+            <h3 className="subsection-title" style={{ marginTop: 0, color: '#2563eb' }}>Key Points</h3>
+            <ul className="bullet-list">
+              <li><strong>Align ratings with feedback:</strong> Make sure your numerical ratings align with your strengths and weaknesses. If your strengths/weaknesses indicate the responses are very similar in quality, your overall rating should reflect that similarity, not show a strong preference for one model.</li>
+              <li><strong>Ground all side-by-side ratings:</strong> Every side-by-side rating should be justified somewhere in your strengths and weaknesses. For example, if you rate A as slightly preferable for Error Handling, you should have a strength for A or a weakness for B that explains why. This ensures your feedback is detailed enough.</li>
+              <li><strong>Avoid identical ratings:</strong> Be thoughtful about your side-by-side ratings. Identical ratings across all dimensions are unlikely to be accurate and make submissions look rushed, increasing the likelihood of rejection.</li>
+              <li><strong>No LLM usage:</strong> Do not use LLMs in your evaluation responses. Submissions showing strong LLM usage will be rejected, and repeated violations will result in removal from the project.</li>
+              <li><strong>Be thorough and specific:</strong> Reference specific aspects of the code and discuss good and bad elements in detail. Avoid generic descriptions like "the code did what was asked and didn't make mistakes."</li>
+            </ul>
+          </div>
           
           <h3 className="subsection-title">Strengths of Response A</h3>
           <p className="list-intro">Describe what the response does well. Focus on:</p>
