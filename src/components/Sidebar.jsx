@@ -11,8 +11,6 @@ const sections = [
   { id: 'example-task', label: 'Example Task', icon: '📄' },
 ]
 
-console.log('Sidebar sections:', sections.length, sections.map(s => s.label))
-
 function Sidebar({ activeSection, setActiveSection }) {
   return (
     <aside className="sidebar">

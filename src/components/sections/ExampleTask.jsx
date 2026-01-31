@@ -35,7 +35,7 @@ function ExampleTask() {
         </div>
 
         <div className="card">
-          <h3 className="subsection-title">Response Comparison</h3>
+          <h3 className="subsection-title">Response Comparison & Detailed Weaknesses Analysis</h3>
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginTop: '1rem' }}>
             <div style={{ border: '1px solid #e0e0e0', borderRadius: '8px', padding: '1rem', backgroundColor: '#fafafa' }}>
@@ -53,10 +53,26 @@ function ExampleTask() {
                 </ul>
               </div>
 
-              <div>
+              <div style={{ marginBottom: '1.5rem' }}>
                 <strong style={{ color: '#dc2626', display: 'block', marginBottom: '0.5rem' }}>Weaknesses Verification:</strong>
                 <p style={{ fontSize: '0.9rem', margin: 0, color: '#666' }}>
                   Doesn't compile or test the code, just edits the files and calls it done. Rust has strict type checking, so these changes could have easily caused compile errors.
+                </p>
+              </div>
+
+              <div style={{ marginBottom: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #e0e0e0' }}>
+                <strong style={{ color: '#dc2626', display: 'block', marginBottom: '0.5rem' }}>Root Cause:</strong>
+                <ul className="bullet-list" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>
+                  <li>Some changes are debatable: The loop-based replacement vs changed <code>.replace()</code> calls is not actually more efficient. It's the same number of allocations. The comment "batch string replacements" is misleading.</li>
+                  <li>Replacing <code>unimplemented!()</code> with silent <code>filter_map</code> skipping changes behavior - the original code explicitly wanted to fail on unsupported types so developers would know how to handle them. Silently skipping could hide bugs.</li>
+                  <li>The <code>&*alias.ty</code> to <code>&alias.ty</code> change, while cleaner, calling this an "optimization" is a stretch.</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong style={{ color: '#dc2626', display: 'block', marginBottom: '0.5rem' }}>Instruction Following:</strong>
+                <p style={{ fontSize: '0.9rem', margin: 0, color: '#666' }}>
+                  Replacing panics with silent skips fundamentally changes the error handling contract. The original code would crash loudly on unsupported generic arguments; the new code silently ignores them. This might not be what maintainers want.
                 </p>
               </div>
             </div>
@@ -74,44 +90,14 @@ function ExampleTask() {
                 </ul>
               </div>
 
-              <div>
+              <div style={{ marginBottom: '1.5rem' }}>
                 <strong style={{ color: '#dc2626', display: 'block', marginBottom: '0.5rem' }}>Weaknesses Verification:</strong>
                 <p style={{ fontSize: '0.9rem', margin: 0, color: '#666' }}>
                   Same as A. Doesn't compile or test the code. Proc-macro code is especially tricky; these changes could easily break.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="card">
-          <h3 className="subsection-title">Detailed Weaknesses Analysis</h3>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginTop: '1rem' }}>
-            <div>
-              <h4 style={{ color: '#2563eb', marginTop: 0, marginBottom: '1rem', fontSize: '1rem' }}>Response A</h4>
-              
-              <div style={{ marginBottom: '1.5rem' }}>
-                <strong style={{ color: '#dc2626', display: 'block', marginBottom: '0.5rem' }}>Root Cause:</strong>
-                <ul className="bullet-list" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                  <li>Some changes are debatable: The loop-based replacement vs changed <code>.replace()</code> calls is not actually more efficient. It's the same number of allocations. The comment "batch string replacements" is misleading.</li>
-                  <li>Replacing <code>unimplemented!()</code> with silent <code>filter_map</code> skipping changes behavior - the original code explicitly wanted to fail on unsupported types so developers would know how to handle them. Silently skipping could hide bugs.</li>
-                  <li>The <code>&*alias.ty</code> to <code>&alias.ty</code> change, while cleaner, calling this an "optimization" is a stretch.</li>
-                </ul>
-              </div>
-
-              <div>
-                <strong style={{ color: '#dc2626', display: 'block', marginBottom: '0.5rem' }}>Instruction Following:</strong>
-                <p style={{ fontSize: '0.9rem', margin: 0, color: '#666' }}>
-                  Replacing panics with silent skips fundamentally changes the error handling contract. The original code would crash loudly on unsupported generic arguments; the new code silently ignores them. This might not be what maintainers want.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h4 style={{ color: '#2563eb', marginTop: 0, marginBottom: '1rem', fontSize: '1rem' }}>Response B</h4>
-              
-              <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ marginBottom: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #e0e0e0' }}>
                 <strong style={{ color: '#dc2626', display: 'block', marginBottom: '0.5rem' }}>Root Cause:</strong>
                 <p style={{ fontSize: '0.9rem', margin: 0, color: '#666', marginBottom: '0.75rem' }}>
                   The <code>any(|s| s.ident == name)</code> change compares an <code>Ident</code> to a <code>String</code>. This probably won't compile—<code>Ident</code> doesn't implement <code>PartialEq&lt;String&gt;</code> directly. You'd need <code>s.ident == name</code> or <code>s.ident == name.as_str()</code> or similar. A shows similar issue but uses <code>&s.ident</code> which has the same problem.
@@ -140,16 +126,20 @@ function ExampleTask() {
           
           <div style={{ marginTop: '1rem' }}>
             {[
-              { title: 'Overall', selected: [5, 7], value: '6/8' },
-              { title: 'Logic & correctness', selected: [5, 7], value: '6/8' },
-              { title: 'Naming & clarity', selected: [5], value: '5/8' },
-              { title: 'Organization & modularity', selected: [5], value: '5/8' },
-              { title: 'Error handling & robustness', selected: [5, 7], value: '6/8' }
-            ].map((category, idx) => (
-              <div key={idx} style={{ marginBottom: '2rem', paddingBottom: '2rem', borderBottom: idx < 4 ? '1px solid #e0e0e0' : 'none' }}>
+              { title: 'Overall', selected: 6 },
+              { title: 'Logic & correctness', selected: 6 },
+              { title: 'Naming & clarity', selected: 5 },
+              { title: 'Organization & modularity', selected: 5 },
+              { title: 'Error handling & robustness', selected: 6 },
+              { title: 'Comments & documentation', selected: 4 },
+              { title: 'Ready for review/merge', selected: 5 },
+              { title: 'Honesty', selected: 4 },
+              { title: 'Instruction following', selected: 5 }
+            ].map((category, idx, arr) => (
+              <div key={idx} style={{ marginBottom: '1.5rem', paddingBottom: '1.5rem', borderBottom: idx < arr.length - 1 ? '1px solid #e0e0e0' : 'none' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem', alignItems: 'center' }}>
                   <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: '600', color: '#1a1a1a' }}>{category.title}</h4>
-                  <span style={{ fontSize: '0.85rem', color: '#666' }}>Selected: {category.value}</span>
+                  <span style={{ fontSize: '0.85rem', color: '#666' }}>Selected: {category.selected}/8</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.8rem', color: '#666' }}>
                   <span>A much better</span>
@@ -157,7 +147,7 @@ function ExampleTask() {
                 </div>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                   {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => {
-                    const isSelected = category.selected.includes(num);
+                    const isSelected = category.selected === num;
                     const isA = num <= 4;
                     return (
                       <button
@@ -167,56 +157,7 @@ function ExampleTask() {
                           padding: '0.75rem 0.5rem',
                           border: isSelected ? '2px solid #2563eb' : '1px solid #d0d0d0',
                           borderRadius: '6px',
-                          backgroundColor: 'white',
-                          color: isSelected ? '#2563eb' : '#999',
-                          fontWeight: isSelected ? '600' : '400',
-                          cursor: 'default',
-                          fontSize: '0.9rem'
-                        }}
-                        disabled
-                      >
-                        {isA ? 'A' : 'B'}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="card">
-          <h3 className="subsection-title">Additional Rating Categories</h3>
-          
-          <div style={{ marginTop: '1rem' }}>
-            {[
-              { title: 'Comments & documentation', selected: [4], value: '4/8' },
-              { title: 'Ready for review/merge', selected: [5], value: '5/8' },
-              { title: 'Honesty', selected: [4], value: '4/8' },
-              { title: 'Instruction following', selected: [5], value: '5/8' }
-            ].map((category, idx) => (
-              <div key={idx} style={{ marginBottom: '2rem', paddingBottom: '2rem', borderBottom: idx < 3 ? '1px solid #e0e0e0' : 'none' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem', alignItems: 'center' }}>
-                  <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: '600', color: '#1a1a1a' }}>{category.title}</h4>
-                  <span style={{ fontSize: '0.85rem', color: '#666' }}>Selected: {category.value}</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.8rem', color: '#666' }}>
-                  <span>A much better</span>
-                  <span>B much better</span>
-                </div>
-                <div style={{ display: 'flex', gap: '0.5rem' }}>
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => {
-                    const isSelected = category.selected.includes(num);
-                    const isA = num <= 4;
-                    return (
-                      <button
-                        key={num}
-                        style={{
-                          flex: 1,
-                          padding: '0.75rem 0.5rem',
-                          border: isSelected ? '2px solid #2563eb' : '1px solid #d0d0d0',
-                          borderRadius: '6px',
-                          backgroundColor: 'white',
+                          backgroundColor: isSelected ? '#eff6ff' : 'white',
                           color: isSelected ? '#2563eb' : '#999',
                           fontWeight: isSelected ? '600' : '400',
                           cursor: 'default',
