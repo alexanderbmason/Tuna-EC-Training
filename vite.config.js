@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/Tuna-EC-Training/',
   server: {
-    port: 3000,
+    port: 3001,
     open: true
   }
 })

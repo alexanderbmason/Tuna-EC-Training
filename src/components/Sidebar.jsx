@@ -7,7 +7,11 @@ const sections = [
   { id: 'automated-evals', label: 'Automated Evals', icon: '🤖' },
   { id: 'review-guidelines', label: 'Review Guidelines', icon: '📝' },
   { id: 'best-practices', label: 'Best Practices', icon: '⭐' },
+  { id: 'office-hours', label: 'Office Hours', icon: '📹' },
+  { id: 'example-task', label: 'Example Task', icon: '📄' },
 ]
+
+console.log('Sidebar sections:', sections.length, sections.map(s => s.label))
 
 function Sidebar({ activeSection, setActiveSection }) {
   return (

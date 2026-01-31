@@ -4,6 +4,8 @@ import TaskWorkflow from './sections/TaskWorkflow'
 import AutomatedEvals from './sections/AutomatedEvals'
 import ReviewGuidelines from './sections/ReviewGuidelines'
 import BestPractices from './sections/BestPractices'
+import OfficeHours from './sections/OfficeHours'
+import ExampleTask from './sections/ExampleTask'
 import './ContentArea.css'
 
 function ContentArea({ activeSection, setActiveSection }) {
@@ -21,6 +23,10 @@ function ContentArea({ activeSection, setActiveSection }) {
         return <ReviewGuidelines />
       case 'best-practices':
         return <BestPractices setActiveSection={setActiveSection} />
+      case 'office-hours':
+        return <OfficeHours />
+      case 'example-task':
+        return <ExampleTask />
       default:
         return <QuickStart setActiveSection={setActiveSection} />
     }
