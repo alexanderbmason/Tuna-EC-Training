@@ -16,9 +16,10 @@ function OfficeHours() {
                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
               }}
             >
+              <source src="/Tuna-EC-Training/tunaoh_compressed.mp4" type="video/mp4" />
               <source src="/Tuna-EC-Training/tunaoh.mp4" type="video/mp4" />
+              <source src="./tunaoh_compressed.mp4" type="video/mp4" />
               <source src="./tunaoh.mp4" type="video/mp4" />
-              <source src="tunaoh.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
