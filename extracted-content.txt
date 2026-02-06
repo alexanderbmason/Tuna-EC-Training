@@ -8,7 +8,7 @@ Project Overview
 
 Project Tuna Guidelines
 Version 1.0
-Last updated: December 17, 2025
+Last updated: Friday 6, 2026
 
 --- Page 3 ---
 
@@ -44,7 +44,7 @@ incognito mode to keep working on the tasks or Try to use the skip button to kee
 tasking.
 To begin tasking on the platform, you’ll receive an alias email address at your registered email.
 1. Log in using your alias email at:
-https://feedback.anthropic.com/surveyor/prwriter_snorkel?email_login=true
+https://feedback.anthropic.com/surveyor/hf_pr_writer_0206_pt2?email_login=true
 a. If presented with a “login with Google” option, do not choose it, it will not work.
 2. You’ll receive an email verification code at your personal email.
 Enter that code to complete login and start tasking.
