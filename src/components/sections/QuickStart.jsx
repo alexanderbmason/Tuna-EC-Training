@@ -41,7 +41,7 @@ function QuickStart({ setActiveSection }) {
       image: capabilityCheckImage,
       content: (
         <>
-          <p>Go to <a href="https://feedback.anthropic.com/surveyor/prwriter_0123?email_login=true" target="_blank" rel="noopener noreferrer" className="link">the external platform</a> and log in to create your task - review and evaluate the given prompt and model responses.</p>
+          <p>Go to <a href="https://feedback.anthropic.com/surveyor/hf_pr_writer_0206_pt2?email_login=true" target="_blank" rel="noopener noreferrer" className="link">the external platform</a> and log in to create your task - review and evaluate the given prompt and model responses.</p>
           <p className="step-detail">Click Submit at the end to complete this step.</p>
         </>
       ),
@@ -61,7 +61,7 @@ function QuickStart({ setActiveSection }) {
     {
       number: 4,
       visual: 'money',
-      content: <p>Once our expert reviewers approve your task, you get paid!</p>,
+      content: <p>Once our expert reviewers approve your task, you get paid! </p>,
       type: 'success'
     }
   ]
